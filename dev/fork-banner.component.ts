@@ -17,6 +17,6 @@ import {Component} from '@angular/core';
 })
 
 export class ForkBannerComponent{
-  url = "https://github.com/AceDZN/Angular2Boilerplate",
+  url = "https://github.com/AceDZN/SwitchPuzzle";
   target = "_blank"
 }
