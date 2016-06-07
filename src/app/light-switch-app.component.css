@@ -13,6 +13,7 @@ body {
     50% {margin-top: 25px;}
     100% {margin-top: 0;}
 }
+
 .angular-logo svg{
   opacity: 0.1;
   max-height: 290px;

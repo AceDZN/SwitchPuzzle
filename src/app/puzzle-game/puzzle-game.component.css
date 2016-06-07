@@ -8,7 +8,8 @@ h4{font-weight:400;line-height:1.5}
 .section.default{background-color:#f5f5f5;border:1px solid #e3e3e3}
 .section.game{background-color:#fcf8e3;border:1px solid #faebcc}
 .section.game.success{background-color:#dff0d8;border-color:#d6e9c6}
-.section .container{max-width:750px}.btn{width:100%;font-size:20px;padding:0;font-weight:100;line-height:32px}
+.section .container{max-width:750px;}
+.btn{width:100%;font-size:20px;padding:0;font-weight:100;line-height:32px}
 .switch-wrap svg{max-width:90%;cursor:pointer}input[type=checkbox]{display:none}.light-bulb path.bulb{fill:#000}
 .light-bulb path.sparkle{opacity:0;-webkit-transform:rotate(720deg);-ms-transform:rotate(720deg);transform:rotate(720deg);-webkit-transform-origin:center;-ms-transform-origin:center;transform-origin:center}
 .light-bulb.lighted path.sparkle{opacity:1;-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}
