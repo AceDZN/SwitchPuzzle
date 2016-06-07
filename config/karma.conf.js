@@ -9,7 +9,7 @@ module.exports = function (config) {
     customLaunchers: {
       // chrome setup for travis CI using chromium
       Chrome_travis_ci: {
-        base: 'Chrome',
+        base: 'Firefox',
         flags: ['--no-sandbox']
       }
     },
@@ -36,7 +36,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
     singleRun: false
   });
 };
