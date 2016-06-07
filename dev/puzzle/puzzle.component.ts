@@ -5,19 +5,24 @@ import {Component} from '@angular/core';
   template: `
     <section [ngClass]="{section:true, default:!name, game:name,success:winner == true}" >
       <div class="container">
-        <h1>LightSwitch</h1>
+        <h1>
+          LightSwitch
+          <span class="pull-right" *ngIf="name">{{steps}}</span>
+        </h1>
        <div class="form-group" *ngIf="!name">
-         <label for="exampleInputEmail1">Enter your name Please:</label>
-         <div class="row">
+         <label for="exampleInputEmail1">
+          <h4>Enter your name Please:</h4>
+         </label>
+         <form class="row" (submit)="onNameInput(playerNameInput.value)">
            <div class="col-xs-8 text-left">
-            <input type="email" class="form-control" #playerNameInput>
+            <input type="text" class="form-control" #playerNameInput>
            </div>
            <div class="col-xs-4 text-right">
-            <button class="btn btn-primary" (click)="onNameInput(playerNameInput.value)">
+            <button class="btn btn-primary" type="submit" >
               Start
             </button>
            </div>
-         </div>
+         </form>
        </div>
        <div *ngIf="name">
          <div class="row">
@@ -63,8 +68,8 @@ import {Component} from '@angular/core';
            </div>
          </div>
          <div class="text-center" *ngIf="winner == true">
-           <h3>Congratulations</h3>
-           <h3>{{name}}, You are the big winner</h3>
+           <h1>Congratulations</h1>
+           <h3><span class="cap">{{name}}</span>, You are the big winner</h3>
            <p>You found the solution in {{steps}} steps only</p>
            <div class="row">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -72,7 +77,7 @@ import {Component} from '@angular/core';
             </div>
            </div>
          </div>
-         <p *ngIf="winner != true">Hey <span class="">{{name}} </span>, Try to switch the lights on & off to find the right combination</p>
+         <h4 class="text-center" *ngIf="winner != true"><br />Hey <span class="cap">{{name}} </span>, Try to switch the lights on & off to find the right combination</h4>
        </div>
 
      </div>
@@ -95,9 +100,7 @@ export class PuzzleComponent implements OnInit{
   steps:number;
   ngOnInit():any{
     this.combination = [null,null,null,null];
-    for(var i=0; i<4;i++){
-      this.combination[i] = Math.random() < 0.5 ? true : false
-    }
+    this.combination = this.randomizeOrder();
     this.winner = false;
     this.switchone = false;
     this.switchtwo = false;
@@ -106,11 +109,20 @@ export class PuzzleComponent implements OnInit{
     this.name = '';
     this.steps = 0;
   }
-  restartGame():any{
-    this.combination = [null,null,null,null];
+  randomizeOrder():any{
+    let c = [null,null,null,null];
     for(var i=0; i<4;i++){
-      this.combination[i] = Math.random() < 0.5 ? true : false
+      c[i] = Math.random() < 0.5 ? true : false
     }
+    console.log(c,"C");
+    if(c[0] == false && c[1] == false && c[2] == false && c[3] == false){
+      return this.randomizeOrder()
+    }
+
+    return c;
+  }
+  restartGame():any{
+    this.combination = this.randomizeOrder();
     this.winner = false;
     this.switchone = false;
     this.switchtwo = false;
@@ -120,13 +132,13 @@ export class PuzzleComponent implements OnInit{
   }
   onCheckboxCheck(s,c):any{
     this[s] = c.checked;
-    this.steps++;
     if(this.switchone===this.combination[0] && this.switchtwo===this.combination[1] && this.switchthree===this.combination[2] && this.switchfour===this.combination[3]){
       this.winner = true;
-
     }
+
+    this.steps++;
   }
   onNameInput(name){
-    this.name = name;
+    this.name = name.toLowerCase();
   }
 }

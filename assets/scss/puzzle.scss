@@ -1,12 +1,23 @@
 h1{
-  margin: 0 auto 40px;
+  margin: 0 auto 20px;
   border-bottom: 1px solid #E3E3E3;
   box-shadow: 0px 1px 0px #fff;-webkit-box-shadow: 0px 1px 0px #fff;-moz-box-shadow: 0px 1px 0px #fff;
+  .pull-right{
+    margin-right: 10%;
+  }
 }
 h2,h3,h4,h5,h6{
   margin: 0 auto 15px;
 }
+h4{
+  font-weight: 400;
+  line-height: 1.5;
+}
+.cap{
+  text-transform: capitalize;
+}
 .section{
+  transition: all .5s;
   padding: 24px;
   min-height: 20px;
   margin-bottom: 20px;
@@ -19,12 +30,14 @@ h2,h3,h4,h5,h6{
   &.game{
     background-color: #fcf8e3;
     border: 1px solid #faebcc;
-    transition: all 1s;
     &.success{
       background-color: #dff0d8;
       border-color: #d6e9c6;
     }
   }
+    & .container {
+        max-width: 750px;
+    }
 }
 .btn{
   width:100%;
