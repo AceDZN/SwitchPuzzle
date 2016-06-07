@@ -13,9 +13,8 @@ git clone https://github.com/AceDZN/SwitchPuzzle.git
 ```
 npm install
 ```
-3: Start server (includes auto refreshing) and gulp watcher
+3: Start the angular-cli server (includes auto refreshing)
 ```
-npm start
+ng serv
 ```
-
-4: Visit localhost:3000 (default) if the tab hasn't opened automatically
+4: Visit localhost:4200 (default) if the tab hasn't opened automatically
